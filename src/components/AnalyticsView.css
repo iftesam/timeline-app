@@ -1,0 +1,137 @@
+.analytics-view {
+  padding: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+  margin-bottom: 24px;
+}
+
+.card {
+  background-color: var(--md-sys-color-surface);
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  border: 1px solid var(--md-sys-color-outline-variant);
+  margin-bottom: 24px;
+}
+
+.card h3 {
+  margin-top: 0;
+  margin-bottom: 8px;
+  font-size: 20px;
+  color: var(--md-sys-color-on-surface);
+}
+
+.card-subtitle {
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+.metric-card {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.metric-value {
+  font-size: 56px;
+  font-weight: 700;
+  color: var(--md-sys-color-primary);
+  margin: 16px 0;
+  font-family: "Outfit", sans-serif;
+}
+
+.mini-progress-bar {
+  height: 8px;
+  background-color: var(--md-sys-color-surface-variant);
+  border-radius: 4px;
+  overflow: hidden;
+  margin-top: 16px;
+  width: 100%;
+}
+
+.mini-progress-bar div {
+  height: 100%;
+  background-color: var(--md-sys-color-primary);
+  transition: width 0.5s ease-out;
+}
+
+.heatmap-container {
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  height: 220px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--md-sys-color-outline-variant);
+  overflow-x: auto;
+  padding-top: 16px;
+}
+
+.heatmap-bar {
+  width: 48px;
+  border-radius: 8px 8px 0 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+  padding-top: 6px;
+  position: relative;
+  transition: height 0.3s ease, filter 0.2s ease;
+  min-height: 28px;
+  flex-shrink: 0;
+}
+
+.heatmap-bar:hover {
+  filter: brightness(1.1);
+}
+
+.heatmap-bar span {
+  text-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+.low-risk { background-color: #4caf50; }
+.med-risk { background-color: #ff9800; }
+.high-risk { background-color: #f44336; }
+
+.heatmap-label {
+  position: absolute;
+  bottom: -28px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 12px;
+  font-weight: normal;
+  white-space: nowrap;
+}
+
+.velocity-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.velocity-table th, .velocity-table td {
+  padding: 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--md-sys-color-surface-variant);
+}
+
+.velocity-table th {
+  color: var(--md-sys-color-on-surface-variant);
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.velocity-table tr:last-child td {
+  border-bottom: none;
+}

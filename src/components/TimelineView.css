@@ -1,0 +1,322 @@
+.timeline-view {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.view-header h2 {
+  font-size: 28px;
+  font-weight: 400;
+  color: var(--md-sys-color-primary);
+  margin-bottom: 8px;
+}
+
+.project-section {
+  background-color: var(--md-sys-color-surface);
+  border-radius: var(--md-sys-shape-corner-large);
+  padding: 24px;
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.project-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.project-dates {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--md-sys-color-on-surface-variant);
+  font-size: 14px;
+  margin-bottom: 24px;
+}
+
+.timeline-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.timeline-node {
+  position: relative;
+  display: flex;
+  gap: 24px;
+  padding-bottom: 24px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 7px;
+  top: 24px;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--md-sys-color-surface-variant);
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  margin-top: 4px;
+  z-index: 1;
+  box-shadow: 0 0 0 4px var(--md-sys-color-surface);
+}
+
+.task-card {
+  flex: 1;
+  background-color: var(--md-sys-color-background);
+  border: 1px solid var(--md-sys-color-surface-variant);
+  border-radius: var(--md-sys-shape-corner-medium);
+  padding: 16px;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background-color 0.2s;
+}
+
+.task-card:hover {
+  background-color: var(--md-sys-color-surface-container);
+  box-shadow: var(--md-sys-elevation-1);
+}
+
+.task-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.task-info h4 {
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.task-date {
+  font-size: 13px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.task-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.status-badge {
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 12px;
+  border-radius: 12px;
+  text-transform: capitalize;
+}
+
+.status-completed {
+  background-color: var(--md-sys-color-primary-container);
+  color: var(--md-sys-color-on-primary-container);
+}
+
+.status-in-progress {
+  background-color: #ffe0b2;
+  color: #e65100;
+}
+
+.status-pending {
+  background-color: var(--md-sys-color-surface-variant);
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.task-progress-badge {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--md-sys-color-primary);
+}
+
+.phase-progress-bar-container {
+    height: 4px;
+    background-color: var(--md-sys-color-surface-variant);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-top: 12px;
+}
+
+.phase-progress-bar-fill {
+    height: 100%;
+    background-color: var(--md-sys-color-primary);
+    transition: width 0.3s ease;
+}
+
+.task-details {
+  display: none;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid var(--md-sys-color-surface-variant);
+  font-size: 14px;
+  color: var(--md-sys-color-on-surface-variant);
+}
+
+.task-details.expanded {
+  display: block;
+  animation: slideDown 0.3s ease-out;
+}
+
+.task-notes {
+    margin-bottom: 16px;
+}
+
+.subtasks-list h5 {
+    font-size: 13px;
+    text-transform: uppercase;
+    color: var(--md-sys-color-on-surface-variant);
+    margin-bottom: 8px;
+}
+
+.subtask-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px;
+    border-radius: var(--md-sys-shape-corner-small);
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+.subtask-item:hover {
+    background-color: var(--md-sys-color-surface-container);
+}
+
+.subtask-checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--md-sys-color-outline);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.subtask-checkbox.checked {
+    background-color: var(--md-sys-color-primary);
+    border-color: var(--md-sys-color-primary);
+    color: white;
+}
+
+.subtask-checkbox .material-symbols-outlined {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.subtask-title.completed-text {
+    text-decoration: line-through;
+    color: var(--md-sys-color-on-surface-variant);
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media print {
+  body {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    background-color: white;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-only {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--md-sys-color-primary);
+    padding-bottom: 8px;
+  }
+
+  .print-header h1 {
+    font-size: 24px;
+    margin: 0;
+    font-weight: bold;
+    color: var(--md-sys-color-on-surface);
+  }
+
+  .print-header p {
+    font-size: 12px;
+    margin: 0;
+    color: var(--md-sys-color-on-surface-variant);
+  }
+
+  .timeline-view {
+    gap: 16px;
+    max-width: 100%;
+    margin: 0;
+  }
+
+  .project-section {
+    box-shadow: none;
+    border: 1px solid #bdc1c6;
+    margin-bottom: 24px;
+    padding: 16px;
+    page-break-inside: auto; /* Allow projects to break naturally if they are long */
+  }
+  
+  .project-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #202124;
+  }
+
+  /* Force all task details to show on print */
+  .task-details {
+    display: block !important;
+    border-top: 1px solid #dadce0;
+    animation: none;
+  }
+
+  .task-card {
+    box-shadow: none !important;
+    border: 1px solid #dadce0;
+    page-break-inside: avoid;
+    margin-bottom: 8px;
+  }
+  
+  .task-actions button {
+    display: none !important; /* Hide edit buttons */
+  }
+  
+  .timeline-line {
+    background-color: #dadce0;
+  }
+  
+  .timeline-dot {
+    box-shadow: 0 0 0 4px white;
+  }
+
+  .status-completed {
+    background-color: #e6f4ea !important;
+    color: #137333 !important;
+  }
+
+  .status-in-progress {
+    background-color: #fef7e0 !important;
+    color: #b06000 !important;
+  }
+
+  .status-pending {
+    background-color: #f1f3f4 !important;
+    color: #5f6368 !important;
+  }
+  
+  .subtask-checkbox {
+    border-color: #bdc1c6 !important;
+  }
+  
+  .subtask-checkbox.checked {
+    background-color: #137333 !important;
+    border-color: #137333 !important;
+  }
+}
